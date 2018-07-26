@@ -1,11 +1,11 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: https://jsonplaceholder.typicode.com/
 
 # muhammadusmansiddiq
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/questions]
+## Questions Collection [/posts/1]
 
 ### List All Questions [GET]
 
@@ -13,27 +13,13 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
+                "id": 1,
+                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+           }
         ]
 
-### Create a New Question [POST]
+### Create a New Question [PUT]
 
 You may create your own question using this action. It takes a JSON
 object containing a question and a collection of answers in the
@@ -41,90 +27,16 @@ form of choices.
 
 + Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+         {
+                "id": 1,
+                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+           }
 
-+ Response 201 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
-            
-            
-
-## Question with id [/alikhan/{a}]
-
-+ Parameters
-    + a (number) - ID of the Question in the form of an integer
-
-### View a Questions Detail [GET]
-
-+ Response 200 (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
-            ]
-        }
-        
-        
-
-
-+ Parameters
-    + a (number) - ID of the Question in the form of an integer
-
-### View a Questions Detail [DELETE]
-
-+ Response 200 (application/json)
-
-        {
-           "data":"deleted"
-        }
+             {
+                "id": 1,
+                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+           }
